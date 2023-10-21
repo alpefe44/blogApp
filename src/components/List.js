@@ -29,7 +29,7 @@ const List = () => {
               <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', padding: 3, borderBottomWidth: 3 }}>{item.author}</Text>
               <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black', padding: 3 }}>{item.title}</Text>
 
-              <View style={{ position: 'absolute', alignSelf: 'center', top: 20, right: 10 }}>
+              <View style={{ position: 'absolute', alignSelf: 'center', right: 10 }}>
                 <TouchableOpacity onPress={() => handleDeletePost(index)}>
                   <Feather name="trash" size={24} color="black" />
                 </TouchableOpacity>

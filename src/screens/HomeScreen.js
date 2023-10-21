@@ -9,6 +9,9 @@ const HomeScreen = ({ navigation }) => {
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
 
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused2, setIsFocused2] = useState(false);
+
 
   const dispatch = useDispatch();
 
@@ -28,8 +31,14 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
       <View style={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-        <TextInput placeholder='Author' value={author} onChangeText={(text) => setAuthor(text)} style={{ padding: 10, height: '50', width: '80%', borderWidth: .4, marginVertical: 5 }}></TextInput>
-        <TextInput placeholder='Title' value={title} onChangeText={(text) => setTitle(text)} style={{ padding: 10, height: '50', width: '80%', borderWidth: .4, marginVertical: 5 }}></TextInput>
+        <TextInput
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder='Author' value={author} onChangeText={(text) => setAuthor(text)} style={{ padding: 10, height: '50', width: '80%', borderWidth: 3, marginVertical: 5, fontWeight: 'bold', borderRadius: 5, borderColor: isFocused ? 'green' : 'gray', }}></TextInput>
+        <TextInput
+          onFocus={() => setIsFocused2(true)}
+          onBlur={() => setIsFocused2(false)}
+          placeholder='Title' value={title} onChangeText={(text) => setTitle(text)} style={{ padding: 10, height: '50', width: '80%', borderWidth: 3, marginVertical: 5, fontWeight: 'bold', borderRadius: 5, borderColor: isFocused2 ? 'green' : 'gray', }}></TextInput>
       </View>
       <View style={{ width: '80%', alignSelf: 'center' }}>
         <Button onPress={() => handleAddPost(title, author)} title='ADD' color={'gray'} ></Button>
